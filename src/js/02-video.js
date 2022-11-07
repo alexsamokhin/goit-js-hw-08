@@ -10,12 +10,13 @@ function onPlay(data){
     localStorage.setItem("videoplayer-current-time", JSON.stringify(data))
 }
 
-let time = 0
+let time
 if (localStorage) {
     try {
-        time = JSON.parse(localStorage.getItem("videoplayer-current-time"))
+        time = JSON.parse(localStorage.getItem("videoplayer-current-time")).seconds
     } catch (error) {}   
 }else{
     time = 0
 }
+
 player.setCurrentTime(time)
